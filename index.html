@@ -31,20 +31,20 @@
 
 
 
-<div id="map" style="width: 600px; height: 400px;"></div>
+<div id="map" style="width: 100%; height: 100vhCOn;"></div>
 <script>
 
-	const map = L.map('map').setView([51.505, -0.09], 13);
+	const map = L.map('map').setView([48.018970, 0.154804], 15);
 
-	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(map);
+	const tiles = L.tileLayer('https://data.geopf.fr/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/png&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+	maxZoom: 18,
+	attribution: '&copy; IGN'
+}).addTo(map);
 
-	const marker = L.marker([51.5, -0.09]).addTo(map)
-		.bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+	const marker = L.marker([[48.018970, 0.154804]).addTo(map)
+		.bindPopup('<b> Voici l'ESGT </b><br />"L'école des IGT de France".').openPopup();
 
-	const circle = L.circle([51.508, -0.11], {
+	/*const circle = L.circle([51.508, -0.11], {
 		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5,
@@ -61,7 +61,7 @@
 	const popup = L.popup()
 		.setLatLng([51.513, -0.09])
 		.setContent('I am a standalone popup.')
-		.openOn(map);
+		.openOn(map);*/
 
 	function onMapClick(e) {
 		popup
